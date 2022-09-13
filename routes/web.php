@@ -13,7 +13,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 // Route dans laquelle le prefix permet de suivre le chemin des noms de différentes class.
-// Le middleware lui permet de se diriger dans l'authenticate lié à l'admin déclaré dont "admin",
+// Le middleware lui permet de se diriger dans l'authenticate lié à l'admin déclaré dont "is_admin",
 // Je regroupe tout cela avec une fonction permettant d'intégrer les routes à l'admin.
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
